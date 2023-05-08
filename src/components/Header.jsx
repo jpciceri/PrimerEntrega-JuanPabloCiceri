@@ -14,7 +14,7 @@ const Header = () => {
                         <div className="container-fluid">
                             <form className="d-flex" role="search">
                                 <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Burscar"/>
-                                    <button className="btn btn-outline-success" type="submit">Buscar</button>
+                                    <button className="btn btn-outline-success " type="submit">Buscar</button>
                             </form>
                         </div>
                     </nav>
