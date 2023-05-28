@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import ItemCount from "./ItemCount";
 import productos from "./json/productos.json";
+import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
@@ -10,22 +10,18 @@ const ItemListContainer = () => {
             setTimeout(() => {
                 resolve(productos)
             }, 2000);
-        })
+        });
          
         promesa.then(data => {
-            console.log(data);
-        })
+            setItems(data);
+        });
 
     }, []);
 
     return (
         <div className="container my-5">
             <div className="row">
-                <div className="col text-center">
-                    <div className="alert alert-warning alert-dismissible fade show" role="alert">
-                        <ItemCount stock={10} />
-                    </div>
-                </div>
+                <ItemList items={items} />                            
             </div>
         </div>
     )
