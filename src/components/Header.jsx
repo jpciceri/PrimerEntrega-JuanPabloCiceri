@@ -1,13 +1,14 @@
-import ElectroSale from "./images/electrosale.png"
-import NavBar from "./NavBar"
-import CartWidget from "./CartWidget"
+import ElectroSale from "./images/electrosale.png";
+import NavBar from "./NavBar";
+import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
         <div className="container-fluid">
             <div className="row bg-info">
                 <div className="col-md-4">
-                    <img src={ElectroSale} alt={"Icono Electrosale"} width={100} />
+                    <Link to={"/"}> <img src={ElectroSale}  alt={"Icono Electrosale"} width={100} /> </Link>
                 </div>
                 <div className="col-md-4">
                     <nav className="navbar bg-body-info">
@@ -20,7 +21,7 @@ const Header = () => {
                     </nav>
                 </div>
                 <div className="col-md-4 text-end">
-                    <a href="/#" className="text-light text-decoration-none">Super Ofertas</a>  |  <a href="/#" className="text-light text-decoration-none">Iniciar Sesión</a>
+                    <Link to={"/#"} className="text-light text-decoration-none">Super Ofertas </Link> |  <Link to={"/#"} className="text-light text-decoration-none">Iniciar Sesión </Link>
                 </div>
             </div>
             <div className="row p-3">

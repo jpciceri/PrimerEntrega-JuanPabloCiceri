@@ -1,23 +1,25 @@
+import { NavLink } from "react-router-dom";
+
 const NavBar = () => {
     return (
 <ul className="nav nav-pills">
   <li className="nav-item">
-    <a className="nav-link active" aria-current="page" href="/#">Casa y Jardín</a>
+    <NavLink className="nav-link active" aria-current="page" to={"/category/casayjardin"}>Casa y Jardín</NavLink>
   </li>
   <li className="nav-item dropdown">
-    <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/#" role="button" aria-expanded="false">Tecnología</a>
+    <NavLink className="nav-link dropdown-toggle" data-bs-toggle="dropdown" to={"/category/tecnologia"} role="button" aria-expanded="false">Tecnología</NavLink>
     <ul className="dropdown-menu">
-      <li><a className="dropdown-item" href="/#">Notebooks</a></li>
-      <li><a className="dropdown-item" href="/#">Placas de Videos</a></li>
-      <li><a className="dropdown-item" href="/#">TV Led y Smart TV</a></li>
-      <li><a className="dropdown-item" href="/#">Accesorios</a></li>
+      <li><NavLink className="dropdown-item" to={"/category/tecnologia"}>Notebooks</NavLink></li>
+      <li><NavLink className="dropdown-item" to={"/category/tecnologia"}>Placas de Videos</NavLink></li>
+      <li><NavLink className="dropdown-item" to={"/category/tecnologia"}>TV Led y Smart TV</NavLink></li>
+      <li><NavLink className="dropdown-item" to={"/category/tecnologia"}>Accesorios</NavLink></li>
     </ul>
   </li>
   <li className="nav-item">
-    <a className="nav-link" href="/#">Electrodomésticos</a>
+    <NavLink className="nav-link" to={"/category/electrodomesticos"}>Electrodomésticos</NavLink>
   </li>
   <li className="nav-item">
-    <a className="nav-link" href="/#" >Rodados</a>
+    <NavLink className="nav-link" to={"/category/rodados"} >Rodados</NavLink>
   </li>
 </ul>
   
