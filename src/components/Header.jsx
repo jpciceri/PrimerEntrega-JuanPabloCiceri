@@ -20,7 +20,7 @@ const Header = () => {
                     </nav>
                 </div>
                 <div className="col-md-4 text-end">
-                    <a href="#" className="text-light text-decoration-none">Super Ofertas</a>  |  <a href="#" className="text-light text-decoration-none">Iniciar Sesión</a>
+                    <a href="/#" className="text-light text-decoration-none">Super Ofertas</a>  |  <a href="/#" className="text-light text-decoration-none">Iniciar Sesión</a>
                 </div>
             </div>
             <div className="row p-3">

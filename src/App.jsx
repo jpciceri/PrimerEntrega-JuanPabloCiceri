@@ -9,7 +9,7 @@ function App() {
     <div className='container-fluid'>
       <Header />
       <HotSale />
-      <ItemListContainer greeting={"No se encontraron Productos"} />
+      <ItemListContainer />
       <Footer />
     </div>
   );
