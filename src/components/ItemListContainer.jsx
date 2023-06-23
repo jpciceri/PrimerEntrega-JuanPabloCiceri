@@ -10,18 +10,6 @@ const ItemListContainer = () => {
 
     const { id } = useParams();
 
-    // useEffect(() => {
-    //     const promesa = new Promise((resolve) => {
-    //         setTimeout(() => {
-    //             resolve(id ? productos.filter(item => item.categoria === id): productos);
-    //         }, 2000);
-    //     });
-
-    //     promesa.then(data => {
-    //         setItems(data);
-    //     });
-
-    // }, [id]);
     useEffect(() => {
         const db = getFirestore();
         const itemsCollection = collection(db, "items");
@@ -35,14 +23,7 @@ const ItemListContainer = () => {
             }
             });
         }, [id]);
-        
-    //     productos.forEach(producto => {
-    //        addDoc(itemsCollection, producto);
-    //     });
 
-    //     console.log("productos cargados en el firestore");
-
-    // }, []);
 
     return (
         <div className="container my-5">

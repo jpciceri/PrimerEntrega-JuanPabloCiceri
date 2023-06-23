@@ -2,13 +2,14 @@ import { useState } from "react";
 import { CartContext } from "./CartContext";
 import { useContext } from "react";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { Navigate } from "react-router-dom";
 
 const Checkout = () => {
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [telefono, setTelefono] = useState("");
     const [orderId, setOrderId] = useState("");
-    const { cart, sumTotal } = useContext(CartContext);
+    const { cart, clear, sumTotal } = useContext(CartContext);
 
     const generarOrden = () => {
         if (nombre.length === 0) {
@@ -22,7 +23,7 @@ const Checkout = () => {
         }
 
         const buyer = { name: nombre, phone: telefono, email: email };
-        const items = cart.map(item => ({ id: item.id, title: item.titulo, price: item.precio }))
+        const items = cart.map(item => ({ id: item.id, title: item.titulo, price: item.precio, quantity:item.quantity }))
         const fecha = new Date();
         const date = `${fecha.getDate()}-${fecha.getMonth() + 1}-${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}`
         const total = sumTotal();
@@ -34,6 +35,7 @@ const Checkout = () => {
         const ordersCollection = collection(db, "orders");
         addDoc(ordersCollection, order).then(resultado => {
             setOrderId(resultado.id);
+            clear();
         })
             .catch(resultado => {
                 console.log("Error! No se pudo realizar la compra!")
@@ -63,21 +65,31 @@ const Checkout = () => {
                 <div className="col-md-6 offset-md-1">
                     <table className="table table-bordered">
                         <tbody>
+
+                            <tr>
+                                <td colSpan={2}><b>Productos seleccionados</b></td>
+                                <td><b>Cantidad</b></td>
+                                <td><b>Precio unitario</b></td>
+                                <td><b>Precio total</b></td>
+
+                            </tr>
+
                             {
+
                                 cart.map(item => (
                                     <tr key={item.id}>
                                         <td> <img src={item.imagen} alt={item.titulo} width={80} /></td>
                                         <td>{item.titulo}</td>
-                                        <td>Cantidad {item.quantity}  </td>
-                                        <td>Precio unidario ${item.precio}</td>
-                                        <td>= ${item.quantity * item.precio}</td>
+                                        <td className="text-center"> {item.quantity}  </td>
+                                        <td className="text-center"> ${item.precio}</td>
+                                        <td className="text-center"> ${item.quantity * item.precio}</td>
                                     </tr>
                                 ))
                             }
                             <tr>
                                 <td colSpan={3}>&nbsp;</td>
-                                <td>Total a Pagar</td>
-                                <td>= ${sumTotal()}</td>
+                                <td className="text-center">Total a Pagar</td>
+                                <td className="text-center"> ${sumTotal()}</td>
 
                             </tr>
                         </tbody>
@@ -86,10 +98,7 @@ const Checkout = () => {
             </div>
             <div className="row">
                 <div className="col text-center my-5">
-                    {orderId ? <div class="alert alert-primary" role="alert">
-                        <h1>Muchas gracias por tu Compra!</h1>
-                        <p>Tu Orden de Compra es: <b>{orderId}</b></p>
-                    </div> : ""}
+                    {orderId ? <Navigate to={"/thankyou/" + orderId} /> : ""}
                 </div>
             </div>
         </div>
