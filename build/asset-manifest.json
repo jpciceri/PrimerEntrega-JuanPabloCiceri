@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ab016b20.css",
+    "main.js": "/static/js/main.ca827249.js",
+    "static/media/hotsale.png": "/static/media/hotsale.bb61a20ccc3dfe36fb18.png",
+    "static/media/electrosale.png": "/static/media/electrosale.1884d317b6b8e7c1c33a.png",
+    "static/media/instagram.svg": "/static/media/instagram.4d969dd141d389ed7a2fe7584b56d681.svg",
+    "index.html": "/index.html",
+    "static/media/whatsapp.svg": "/static/media/whatsapp.bd02df8e7a5ef128e55bcd2a40a8b4a5.svg",
+    "static/media/youtube.svg": "/static/media/youtube.85c2f09d0ead35313e7bb2812e3c66f5.svg",
+    "static/media/trash.svg": "/static/media/trash.740732f4ed089980534673d3508e7edd.svg",
+    "static/media/cart.svg": "/static/media/cart.05dfd14f0943edf68c9a30788565c795.svg",
+    "static/media/facebook.svg": "/static/media/facebook.4d4460260f64103d8da4a91d8e856d36.svg",
+    "main.ab016b20.css.map": "/static/css/main.ab016b20.css.map",
+    "main.ca827249.js.map": "/static/js/main.ca827249.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab016b20.css",
+    "static/js/main.ca827249.js"
+  ]
+}
